@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+/**
+ * Controller for handling authentication-related requests.
+ */
 @RestController()
 @RequestMapping("/auth")
 public class AuthenticationController {
@@ -18,9 +22,19 @@ public class AuthenticationController {
         this.userService = userService;
     }
 
+
+    /**
+     * Endpoint for registering a new user.
+     *
+     * @param user The user to register.
+     * @return The registered user.
+     */
     @PostMapping("/register")
     public ApplicationUser registerUser(@RequestBody ApplicationUser user) {
         System.out.println("Register endpoint hit");
         return userService.registerUser(user);
     }
+
+
+
 }

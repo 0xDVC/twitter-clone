@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -49,6 +50,8 @@ public class ApplicationUser {
     @Column()
     @JsonIgnore
     private Long verification;
+
+    private LocalDateTime verificationExpirationTime;
 
     public ApplicationUser() {
         this.authorities = new HashSet<>();
@@ -161,6 +164,15 @@ public class ApplicationUser {
                 ", authorities=" + authorities +
                 ", enabled=" + enabled +
                 ", verification=" + verification +
+                ", verificationExpiration" + verificationExpirationTime +
                 '}';
+    }
+
+    public void setVerificationExpiryTime(LocalDateTime localDateTime) {
+        this.verificationExpirationTime = localDateTime;
+    }
+
+    public LocalDateTime getVerificationExpiryTime() {
+        return verificationExpirationTime;
     }
 }

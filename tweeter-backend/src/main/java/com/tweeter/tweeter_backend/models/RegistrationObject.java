@@ -6,7 +6,6 @@ public class RegistrationObject {
     private String firstName;
     private String lastName;
     private String email;
-    private String phone;
     private Date dateOfBirth;
 
     public RegistrationObject() {
@@ -18,7 +17,6 @@ public class RegistrationObject {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.phone = phone;
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -46,13 +44,6 @@ public class RegistrationObject {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 
     public Date getDateOfBirth() {
         return dateOfBirth;
@@ -68,7 +59,6 @@ public class RegistrationObject {
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 '}';
     }

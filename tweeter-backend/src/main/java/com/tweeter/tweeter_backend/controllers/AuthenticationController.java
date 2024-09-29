@@ -1,6 +1,8 @@
 package com.tweeter.tweeter_backend.controllers;
 
 import com.tweeter.tweeter_backend.exceptions.EmailAlreadyTakenException;
+import com.tweeter.tweeter_backend.exceptions.EmailFailedToSendException;
+import com.tweeter.tweeter_backend.exceptions.IncorrectVerificationCodeException;
 import com.tweeter.tweeter_backend.exceptions.UserDoesNotExist;
 import com.tweeter.tweeter_backend.models.ApplicationUser;
 import com.tweeter.tweeter_backend.models.RegistrationObject;
@@ -43,6 +45,16 @@ public class AuthenticationController {
         return new ResponseEntity<>("The user you are looking for does not exist", HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler({EmailFailedToSendException.class})
+    public ResponseEntity<String> handleEmailFailedToSend() {
+        return new ResponseEntity<>("Email failed to send, try again in a moment", HttpStatus.INTERNAL_SERVER_ERROR );
+    }
+
+    @ExceptionHandler({IncorrectVerificationCodeException.class})
+    public ResponseEntity<String> handleIncorrectVerificationCode() {
+        return new ResponseEntity<>("The code provided does not match the users code", HttpStatus.CONFLICT);
+    }
+
     /**
      * Endpoint for registering a new user.
      *
@@ -68,7 +80,15 @@ public class AuthenticationController {
     @PostMapping("/email/code")
     public ResponseEntity<String> createEmailVerificationCode(@RequestBody LinkedHashMap<String, String> body) {
         userService.generateEmailVerification(body.get("username"));
-        return new ResponseEntity<>("Verification code generated, email sent", HttpStatus.CREATED);
+        return new ResponseEntity<>("Verification code generated, email sent", HttpStatus.OK);
+    }
+
+    @PostMapping("/email/verify")
+    public ApplicationUser verifyEmail(@RequestBody LinkedHashMap<String, String> body) {
+        String username = body.get("username");
+        Long code = Long.parseLong(body.get("code"));
+
+        return userService.verifyEmail(username, code);
     }
 
 }

@@ -1,6 +1,6 @@
 # Twitter Clone
 
-Hey there! Welcome to my little project where I'm trying to build a Twitter clone just for fun and mostly learning. From development to deployment.
+Welcome to my little project where I'm trying to build a Twitter clone just for fun and mostly learning. From development to deployment.
 
 **PS** *(Note to self)*: Another project waiting to be shelved
 

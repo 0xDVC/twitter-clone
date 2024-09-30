@@ -5,7 +5,7 @@ target/
 !**/src/test/**/target/
 
 **/resources/*.json
-**/StoreCredentials
+**/StoredCredential
 
 .apt_generated
 .classpath

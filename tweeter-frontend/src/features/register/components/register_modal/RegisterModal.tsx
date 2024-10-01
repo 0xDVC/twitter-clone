@@ -1,11 +1,20 @@
-import React from "react";
-import {Modal} from "../../../../components/modal/Modal.tsx";
+import React, {useState} from "react";
+import { Modal } from "../../../../components/modal/Modal.tsx";
+import { RegistrationStepCounter } from "./RegistrationStepCounter.tsx";
 
 export const RegisterModal: React.FC = () => {
+    const [step, setStep] = useState<number>(3);
+
+    const stepBtnClicked = () => {
+        step === 1 || step === 4 || step >= 6 ? setStep(step): setStep(step - 1);
+    }
+
     return (
         <div className="flex justify-center items-center w-full h-full">
             <Modal>
-                <h1 className="text-2xl text-center">Register</h1>
+                <div>
+                    <RegistrationStepCounter step={step} changeStep={stepBtnClicked}/>
+                </div>
             </Modal>
         </div>
     );

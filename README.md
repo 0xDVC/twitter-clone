@@ -13,8 +13,9 @@ Watching a bunch of videos and reading up on how to create a social media app (T
 
 - **Backend**: Java with Spring Boot
 - **Database**: PostgreSQL
-- **Frontend**: React + Vite with TypeScript
+- **Frontend**: React + Vite with TypeScript, styled with TailwindCSS
 
 ## What Have I Learned so far?
 
-Better grasp of some new concepts in Spring Security 6. 
+Better grasp of some new concepts in Spring Security 6.
+Redux State Management.

@@ -18,3 +18,19 @@ export interface StyledInputProps {
     theme: Theme;
     color?: string;
 }
+
+export interface ValidatedInputState {
+    active: boolean;
+    valid: boolean;
+    typedIn: boolean;
+    labelActive: boolean;
+    labelColor: string;
+    value: string;
+}
+
+
+export interface Dob {
+    day: string;
+    month: string;
+    year: string;
+}

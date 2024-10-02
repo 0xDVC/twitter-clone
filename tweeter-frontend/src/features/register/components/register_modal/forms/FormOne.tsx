@@ -1,5 +1,7 @@
-import { TextInput } from "../../../../../components/testInput/TextInput.tsx";
 import { useState, useEffect } from "react";
+import {ValidatedInput} from "../../../../../components/validateInput/ValidatedInput.tsx";
+import {validateName} from "../../../../../services/Validators.ts";
+import {RegisterDateInput} from "../../../../../components/validateInput/RegisterDateInput.tsx";
 
 interface FormOneProps {
     firstName: string;
@@ -25,32 +27,29 @@ export const FormOne = () => {
     }
 
     return (
-        <div>
+        <div className="w-[85%]">
             <div>
-                {/* First Name*/}
-                <TextInput
-                    name={"firstName"}
-                    label={"First"}
-                    errorMessage={"Please enter your name"}
-                    onChange={updateUser}
+                <ValidatedInput name="firstName"
+                                label="First"
+                                errorMessage="What's your name?"
+                                validator={validateName}
+                                changeValue={updateUser}
+                                />
+
+                <ValidatedInput name="lastName"
+                                label="Last"
+                                errorMessage="What's your name?"
+                                validator={validateName}
+                                changeValue={updateUser}
                 />
 
-                {/* Last Name*/}
-                <TextInput
-                    name={"lastName"}
-                    label={"Last"}
-                    errorMessage={"Please enter your name"}
-                    onChange={updateUser}
+                <ValidatedInput name="email"
+                                label="Email"
+                                errorMessage="Please enter a valid email"
+                                validator={validateName}
+                                changeValue={updateUser}
                 />
-
-                {/* Email */}
-                <TextInput
-                    name={"email"}
-                    label={"Email"}
-                    errorMessage={"Please enter your email"}
-                    onChange={updateUser}
-                />
-
+                <RegisterDateInput />
             </div>
         </div>
     );

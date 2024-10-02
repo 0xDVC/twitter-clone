@@ -19,8 +19,7 @@ const theme: Theme = {
 
 const GlobalStyle = createGlobalStyle `
     *{
-        font-family: 'IBM Plex Sans', sans-serif;
-        font-weight: 500;
+font-family: 'Twitter-Chirp', sans-serif;        font-weight: 500;
     }
 `
 

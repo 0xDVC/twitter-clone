@@ -9,7 +9,6 @@ import com.tweeter.tweeter_backend.models.RegistrationObject;
 import com.tweeter.tweeter_backend.repositories.RoleRepository;
 import com.tweeter.tweeter_backend.repositories.UserRepository;
 import com.tweeter.tweeter_backend.service.UserService;
-import org.apache.tomcat.util.http.parser.HttpParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

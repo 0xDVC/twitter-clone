@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "vite-tsconfig-paths": "^5.0.1"
+  },
+  "dependencies": {
+    "styled-components": "^6.1.13"
   }
 }
